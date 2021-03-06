@@ -24,7 +24,7 @@ from rest_framework_simplejwt.views import (
 
 urlpatterns = [
     # index
-    path('`', TemplateView.as_view(template_name='index.html')),
+    path('', TemplateView.as_view(template_name='index.html')),
     # auth
     # path('api-auth/', include('rest_framework.urls')),  # Cookie
     # path('api/token/', TokenObtainPairView.as_view()),  # simple jwt
