@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     # package
     'rest_framework',
     'djoser',
+    'corsheaders',
     # app
     'apiv1.apps.Apiv1Config',
 ]
@@ -49,6 +50,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # cors
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -128,8 +132,17 @@ REST_FRAMEWORK = {
     ],
 }
 
+
 # JWT
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
     'AUTH_HEADER_TYPES': ('JWT',),
 }
+
+
+# cors
+CORS_ALLOW_ALL_ORIGINS = False
+
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:5500",
+]
